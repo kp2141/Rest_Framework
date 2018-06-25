@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.models import BaseUserManager
 
+
 # Create your models here.
 class UserProfileManager(BaseUserManager):
 
@@ -27,6 +28,7 @@ class UserProfileManager(BaseUserManager):
 
         user.save(using=self._db)
 
+
 class UserProfile(AbstractBaseUser,PermissionsMixin):
     email = models.EmailField(max_length=255,unique=True)
     name = models.CharField(max_length=255)
@@ -46,6 +48,7 @@ class UserProfile(AbstractBaseUser,PermissionsMixin):
 
     def __str__(self):
         return self.email
+
 
 class ProfileFeedItem(models.Model) :
     """Profile status update."""
